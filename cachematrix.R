@@ -1,6 +1,11 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
+## Certain computations are quite costly. To avoid repeating computations, the
+## results of a computation can be stored  aka cached, by creating a cached data
+## function which caches the computed values, and a computation function, which 
+## checks first the cached data and computes only if the cached variable is null
+
 ## Write a short comment describing this function
 ## this first function creates a special "matrix", which is a 
 ## list containing functions to set and get its value, as well as set and get 

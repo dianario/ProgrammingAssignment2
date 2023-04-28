@@ -10,11 +10,11 @@
 ## manipulate the vector and its associated mean value
 
 makeCacheMatrix <- function(x = matrix()) {
-  inv <- matrix()
+  inv <- NULL
   set <- function(y){
-    x <<-y    
-    inv <<- NULL
-  }
+         x <<-y    
+         inv <<- NULL
+         }
   get <- function() x
   setinvmtx <- function(invmatrix) {
     inv <<- invmatrix
@@ -28,7 +28,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-## Calculate the inverse using the solve() function
+## This function first checked if the inverse of the matrix has been cached by 
+## calling the getinvmxt method on it; If it has a value, it returns the cached 
+## data, else it gets the matrix data, computes its inverse, stores it in the 
+## inv variable, caches it by calling the setinvmtx method and returns it.
 
 cacheSolve <- function(x, ...) {
   inv <- x$getinvmtx()
@@ -38,4 +41,6 @@ cacheSolve <- function(x, ...) {
   }
   data <- x$get()
   inv <- solve(data, ...)
+  x$setinvmtx(inv)
+  inv
 }
